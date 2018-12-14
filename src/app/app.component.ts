@@ -6,21 +6,21 @@ import { Post } from './models/post.model';
 import * as PostActions from './actions/post.actions';
 
 interface AppState {
-  posts: Post;
+  post: Post;
 }
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
 	post$: Observable<Post>
-	text: string; /// form input val
+	public text: string; /// form input val
 
 	constructor(private store: Store<AppState>) {
-		this.post$ = this.store.select('post')
+		this.post$ = this.store.select('post');	
 	}
 
 	editText() {

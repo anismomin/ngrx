@@ -1,15 +1,27 @@
-<div *ngIf="post | async as p">
-	
-	<h2>{{ p.text }}</h2>
-	<h4>Votes: {{ p.likes }}</h4>
-  
-	<button (click)="upvote()">Upvote</button>
-	<button (click)="downvote()">Downvote</button>
-	<button (click)="resetPost()">Reset</button>
-  
-	<input [(ngModel)]="text">
-	<button (click)="editText()" >Change Title</button>
-  
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="columns">
+	<div class="column is-half is-offset-one-quarter" style="text-align: center; margin-top: 50px;">
+		<h1>ngrxFire</h1>
+		<hr>
+		<div *ngIf="post$ | async as post">
+
+			<i *ngIf="post.loading" class="fa fa-spin fa-refresh"></i>
+		
+
+			<h2>{{ post.text }}</h2>
+			<h4>Votes:  <span class="tag is-info is-large">{{ post.likes }}</span></h4>
+
+			<hr>
+
+			<button (click)="upvote()" class="button is-success">Upvote</button>
+			<button (click)="downvote()" class="button is-danger">Downvote</button>
+			<button (click)="resetPost()" class="button is-default">Reset</button>
+			<hr>
+			<input [(ngModel)]="text" class="input">
+			<button (click)="editText()" class="button is-success">Change Title</button>
+			
+		</div>
+	</div>
 </div>
 
 
